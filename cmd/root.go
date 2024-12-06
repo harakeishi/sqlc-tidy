@@ -1,8 +1,10 @@
 package cmd
 
 import (
+	"fmt"
 	"os"
 
+	sqlctidy "github.com/harakeishi/sqlc-tidy/sqlc-tidy"
 	"github.com/spf13/cobra"
 )
 
@@ -15,7 +17,22 @@ var rootCmd = &cobra.Command{
 	// has an action associated with it:
 	// Run: func(cmd *cobra.Command, args []string) { },
 	Run: func(cmd *cobra.Command, args []string) {
-
+		// Get the path of the current directory
+		dir, err := os.Getwd()
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+		organizer, err := sqlctidy.NewOrganizer(dir)
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+		err = organizer.Run()
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
 	},
 }
 
