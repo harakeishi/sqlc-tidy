@@ -6,6 +6,7 @@ require (
 	github.com/harakeishi/curver v0.1.2
 	github.com/samber/lo v1.47.0
 	github.com/spf13/cobra v1.8.1
+	github.com/zitadel/oidc/v2 v2.12.2
 	gopkg.in/yaml.v2 v2.4.0
 )
 
