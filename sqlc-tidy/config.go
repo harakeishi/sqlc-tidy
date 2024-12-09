@@ -40,7 +40,6 @@ func ReadConfig(dir string) (Config, error) {
 	if err != nil {
 		return config, fmt.Errorf("failed to parse YAML: %w", err)
 	}
-	fmt.Printf("%+v", config)
 	return config, nil
 }
 
