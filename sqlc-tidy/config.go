@@ -11,17 +11,19 @@ import (
 // Config is a struct to hold the contents of the configuration file.
 type Config struct {
 	Version string `yaml:"version"`
-	SQL     []struct {
-		Schema  string `yaml:"schema"`
-		Queries string `yaml:"queries"`
-		Engine  string `yaml:"engine"`
-		Gen     struct {
-			Go struct {
-				Package string `yaml:"package"`
-				Out     string `yaml:"out"`
-			} `yaml:"go"`
-		} `yaml:"gen"`
-	} `yaml:"sql"`
+	SQL     []SQL
+}
+
+type SQL struct {
+	Schema  string `yaml:"schema"`
+	Queries string `yaml:"queries"`
+	Engine  string `yaml:"engine"`
+	Gen     struct {
+		Go struct {
+			Package string `yaml:"package"`
+			Out     string `yaml:"out"`
+		} `yaml:"go"`
+	} `yaml:"gen"`
 }
 
 // ReadConfig reads the configuration file from the specified path and stores it in the Config struct.
